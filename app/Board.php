@@ -327,10 +327,9 @@ class Board extends Model
 
                 if ($captchaLifespan > 0) {
                     $query->whereNotNull('cracked_at');
-                    $query->where('cracked_at', '>=', \Carbon\Carbon::now()->subMinutes($captchaLifespan));
+                    $query->where('cracked_at', '>=', Carbon::now()->subMinutes($captchaLifespan));
                 }
             })
-            ->orderBy('cracked_at', 'desc')
             ->first();
 
         $requireCaptcha = !($lastCaptcha instanceof Captcha);
