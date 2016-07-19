@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Cache;
 use Illuminate\Database\Eloquent\Model;
 
 class FileAttachment extends Model
@@ -89,11 +90,15 @@ class FileAttachment extends Model
      */
     public static function getRecentImages($number = 16)
     {
-        $sfw = static::getRecentImagesByWorksafe($number, true);
-        $nsfw = static::getRecentImagesByWorksafe($number, false);
-        $images = $sfw->merge($nsfw)->sortByDesc('attachment_id');
+        $key = "index.recent_images.{$number}";
 
-        return $images;
+        return Cache::remember($key, 1, function () use ($number) {
+            $sfw = static::getRecentImagesByWorksafe($number, true);
+            $nsfw = static::getRecentImagesByWorksafe($number, false);
+            $images = $sfw->merge($nsfw)->sortByDesc('attachment_id');
+
+            return $images;
+        });
     }
 
     protected static function getRecentImagesByWorksafe($number = 16, $sfw = false)

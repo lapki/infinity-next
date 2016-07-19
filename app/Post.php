@@ -1315,22 +1315,26 @@ class Post extends Model implements FormattableContract
      */
     public static function getRecentPosts($number = 16, $sfwOnly = true)
     {
-        return static::where('body_has_content', true)
-            ->whereHas('board', function ($query) use ($sfwOnly) {
-                $query->where('is_indexed', '=', true);
-                $query->where('is_overboard', '=', true);
+        $key = "index.recent_posts.{$number}." . ($sfwOnly ? 1 : 0);
 
-                if ($sfwOnly) {
-                    $query->where('is_worksafe', '=', true);
-                }
-            })
-            ->with('board')
-            ->with(['board.assets' => function ($query) {
-                $query->whereBoardIcon();
-            }])
-            ->limit($number)
-            ->orderBy('post_id', 'desc')
-            ->get();
+        return Cache::remember($key, 1, function () use ($number, $sfwOnly) {
+            return static::where('body_has_content', true)
+                ->whereHas('board', function ($query) use ($sfwOnly) {
+                    $query->where('is_indexed', '=', true);
+                    $query->where('is_overboard', '=', true);
+
+                    if ($sfwOnly) {
+                        $query->where('is_worksafe', '=', true);
+                    }
+                })
+                ->with('board')
+                ->with(['board.assets' => function ($query) {
+                    $query->whereBoardIcon();
+                }])
+                ->limit($number)
+                ->orderBy('post_id', 'desc')
+                ->get();
+        });
     }
 
     /**
