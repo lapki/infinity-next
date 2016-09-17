@@ -1,7 +1,7 @@
-**[Infinity Next](https://16chan.nl)** is an imageboard using the [Laravel Framework](https://github.com/laravel/laravel). It was conceived as a way to replace existing free imageboard software that have aged poorly. Infinity Next is completely free to use, but modifications to the source code must be made open source as well.
+**[Infinity Next](http://nextchan.8ch.tech)** is an imageboard using the [Laravel Framework](https://github.com/laravel/laravel). It was conceived as a way to replace existing free imageboard software that have aged poorly. Infinity Next is completely free to use, but modifications to the source code must be made open source as well.
 
 # Submitting Issues
-If you are submitting an [issue](https://github.com/infinity-next/infinity-next/issues) to developers, please supply the following:
+If you are submitting an [issue](https://github.com/nextchan/infinity-next/issues) to developers, please supply the following:
 
 - A concise description of your problem.
 - An _exact case_ of the error. If the problem is code related, reference the file and line number.

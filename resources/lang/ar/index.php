@@ -16,7 +16,7 @@ return [
         "لمصلحة حرية التعبير،فقط يتم حذف الأشياء التي تنتهك DMCA (القانون الأمريكي).<wbr />",
 
     'info' => [
-        'welcome' => "<p><a href=\"https://github.com/infinity-next/infinity-next\">انفنتي نكست</a> هذا الموقع يستخدم" .
+        'welcome' => "<p><a href=\"https://github.com/nextchan/infinity-next\">انفنتي نكست</a> هذا الموقع يستخدم" .
             ".<a href=\"https://laravel.com\">الإطار لارافل</a> مع PHP لوحات صور" .
             ".AGPL 3.0 مرخص تحت</p>",
 

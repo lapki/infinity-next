@@ -188,7 +188,7 @@
 					If you are interested, I would seriously advise looking into the Laravel framework and familiarizing yourself with its architecture. There is a slight learning curve.
 				</p>
 				<p>
-					Our git repository is accessible <a href="https://github.com/infinity-next/infinity-next/">here</a>.
+					Our git repository is accessible <a href="https://github.com/nextchan/infinity-next/">here</a>.
 				</p>
 				
 				<h3>Why did you build your own donation system? Why build it first thing?</h3>

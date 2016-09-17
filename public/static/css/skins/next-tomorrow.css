@@ -152,7 +152,7 @@ html.js body.responsive main.index-threaded form.form-post .row-post {
 }
 form.form-post .ui-resizable-handle {
     opacity: 0.4;
-    background-image: url("https://16chan.nl/static/img/backgrounds/ui-icons_FFFFFF_256x240.png");
+    background-image: url("http://nextchan.8ch.tech/static/img/backgrounds/ui-icons_FFFFFF_256x240.png");
 }
 html body.responsive main.index-threaded form.form-post .row-file .dz-container {
     border: 1px solid #CCC !important;

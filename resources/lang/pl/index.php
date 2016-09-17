@@ -16,7 +16,7 @@ return [
 		"In the interest of free speech, only content that directly violates the DMCA or other US laws is deleted.<wbr />",
 
 	'info' => [
-		'welcome' => "<p>Ta strona używa <a href=\"https://github.com/infinity-next/infinity-next\">Infinity Next</a>, " .
+		'welcome' => "<p>Ta strona używa <a href=\"https://github.com/nextchan/infinity-next\">Infinity Next</a>, " .
 			"oprogramowania do tworzenia for obrazkowych opartego na <a href=\"https://laravel.com\">frameworku Laravel</a>. " .
 			"Infinity Next jest wydany na licencji AGPL 3.0, co oznacza, że każdy może ściągnąć i zainstalować instancję tego silnika samemu.</p>" .
 			"<p>Board <a href=\"/test/\">/test/</a> został utworzony.</p>",
