@@ -8,7 +8,7 @@
 	<section class="contrib-howto grid-container">
 		<ul class="contrib-options smooth-box">
 			<li class="contrib-option option-code grid-25">
-				<a class="option-link" href="https://github.com/8n-tech/infinity-next/">
+				<a class="option-link" href="https://github.com/nextchan/infinity-next/">
 					<span class="option-stack fa-stack">
 						<i class="fa fa-square fa-stack-2x"></i>
 						<i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
