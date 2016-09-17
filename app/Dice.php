@@ -154,7 +154,7 @@ class Dice extends Model
      *
      * @throws InvalidArgumentException
      */
-    public static function throw($rolling = 1, $sides = 6, $modifier = 0, $greater_than = null, $less_than = null, $minimum = null, $maximum = null)
+    public static function throw_it($rolling = 1, $sides = 6, $modifier = 0, $greater_than = null, $less_than = null, $minimum = null, $maximum = null)
     {
         // turns "+100" to 100 and "-100" to -100.
         $modifier = (int) $modifier;

@@ -21,7 +21,7 @@ class HistoryController extends PanelController
 {
     const VIEW_HISTORY = 'history';
 
-    public function list($ip)
+    public function list_history($ip)
     {
         if (!$this->user->canViewGlobalHistory()) {
             return abort(403);

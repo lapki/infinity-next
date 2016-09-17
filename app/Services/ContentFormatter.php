@@ -515,7 +515,7 @@ class ContentFormatter
                 // InvalidArgumentException from Dice::throw are captured.
                 // Anything else is unexpected.
                 try {
-                    $throw = Dice::throw(
+                    $throw = Dice::throw_it(
                         @((int) $matches['rolling'] ?: 0),
                         @((int) $matches['sides'] ?: 0),
                         @((int) $matches['modifier'] ?: 0),

@@ -63,7 +63,7 @@ Route::group(['middleware' => [ \App\Http\Middleware\BoardAmbivilance::class,],]
     /**
      * Post History
      */
-    Route::get('history/{ip}', ['as' => 'history.global', 'uses' => 'HistoryController@list',]);
+    Route::get('history/{ip}', ['as' => 'history.global', 'uses' => 'HistoryController@list_history',]);
 
     /*
      *  Page Controllers (Panel / Management)
