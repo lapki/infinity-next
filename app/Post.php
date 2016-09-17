@@ -781,7 +781,7 @@ class Post extends Model implements FormattableContract
      */
     public function getReplyCount()
     {
-        return $this->getRelation('replies')->count();
+        return $this->replies->count();
     }
 
     /**
@@ -793,7 +793,7 @@ class Post extends Model implements FormattableContract
     {
         $files = 0;
 
-        foreach ($this->getRelation('replies') as $reply) {
+        foreach ($this->replies as $reply) {
             $files += $reply->getRelation('attachments')->count();
         }
 
