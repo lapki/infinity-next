@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Autoprune::class,
+        \App\Console\Commands\Captchaprune::class,
         \App\Console\Commands\Import::class,
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\RecordStats::class,
@@ -35,6 +36,7 @@ class Kernel extends ConsoleKernel
 
         $this->runRecordStats($schedule, $now);
         $this->runAutoprune($schedule, $now);
+        $this->runCaptchaprune($schedule, $now);
         $this->runTorPull($schedule, $now);
     }
 
@@ -65,6 +67,18 @@ class Kernel extends ConsoleKernel
             ->sendOutputTo("{$logdir}/{$now->format('Y-m-d_H')}.txt");
     }
 
+    private function runCaptchaprune(Schedule $schedule, Carbon $now)
+    {
+        $logdir = storage_path('logs/captchaprune');
+
+        if (!File::exists($logdir)) {
+            File::makeDirectory($logdir);
+        }
+
+        $schedule->command('captcha')
+            ->hourly()
+            ->sendOutputTo("{$logdir}/{$now->format('Y-m-d_H')}.txt");
+    }
 
     private function runInspire(Schedule $schedule, Carbon $now)
     {
