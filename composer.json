@@ -14,6 +14,25 @@
         }
     ],
 
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/nextchan/braintree"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/nextchan/laravel-captcha"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/nextchan/eightdown"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/nextchan/sleuth"
+        }
+    ],
+
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
