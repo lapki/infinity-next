@@ -75,7 +75,7 @@ class Kernel extends ConsoleKernel
             File::makeDirectory($logdir);
         }
 
-        $schedule->command('captcha')
+        $schedule->command('captchaprune')
             ->hourly()
             ->sendOutputTo("{$logdir}/{$now->format('Y-m-d_H')}.txt");
     }
