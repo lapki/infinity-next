@@ -41,6 +41,7 @@ class TorPull extends Command
      * @var string
      */
     const LOOKUP_URL = "https://check.torproject.org/cgi-bin/TorBulkExitList.py";
+    const LOOKUP_PORTS = array(80, 443, 8080, 8443);
 
     /**
      * Execute the console command.
@@ -55,10 +56,16 @@ class TorPull extends Command
         ];
 
         $ips = collect();
-        $ips = $ips->merge($this->getPortIps($query, 80));
-        $ips = $ips->merge($this->getPortIps($query, 443));
-        $ips = $ips->merge($this->getPortIps($query, 8080));
-        $ips = $ips->merge($this->getPortIps($query, 8443));
+        foreach (static::LOOKUP_PORTS as $port)
+        {
+            $portIps = $this->getPortIps($query, $port);
+            if ($portIps.isEmpty())
+            {
+                // Something went wrong, we don't want to update the list.
+                return;
+            }
+            $ips = $ips->merge($portIps);
+        }
         $ips = $ips->unique();
 
         Storage::put('TorExitNodes.ser', $ips);
@@ -86,6 +93,11 @@ class TorPull extends Command
                 ]
             )
         );
+
+        if ($request === false)
+        {
+            return collect();
+        }
 
         $lines = explode("\n", $response);
 
