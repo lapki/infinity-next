@@ -59,7 +59,7 @@ class TorPull extends Command
         foreach (static::LOOKUP_PORTS as $port)
         {
             $portIps = $this->getPortIps($query, $port);
-            if ($portIps.isEmpty())
+            if (empty($portIps))
             {
                 // Something went wrong, we don't want to update the list.
                 return;
@@ -79,7 +79,7 @@ class TorPull extends Command
      * @param array $query
      * @param int $port
      *
-     * @return \Illuminate\Support\Collection
+     * @return array
      */
     public function getPortIps($query, $port = 80)
     {
@@ -94,9 +94,9 @@ class TorPull extends Command
             )
         );
 
-        if ($request === false)
+        if ($response === false)
         {
-            return collect();
+            return array();
         }
 
         $lines = explode("\n", $response);
