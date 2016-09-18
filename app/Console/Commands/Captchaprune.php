@@ -34,11 +34,11 @@ class Captchaprune extends Command
 
         // Delete all expired captchas
         $this->comment('    Pruning expired captchas...');
-        $this->handleExpired($carbonNow)
+        $this->handleExpired($carbonNow);
 
         // Delete all validated captchas that are older than their lifespan.
         $this->comment('    Pruning old validated captchas...');
-        $this->handleOld($carbonNow)
+        $this->handleOld($carbonNow);
     }
 
     /**
@@ -56,6 +56,6 @@ class Captchaprune extends Command
     {
         $captchaLife = (int) Settings::get('captchaLifespanTime', 0);
 
-        Captcha::pruneOld($now, $captchaLife)
+        Captcha::pruneOld($now, $captchaLife);
     }
 }
