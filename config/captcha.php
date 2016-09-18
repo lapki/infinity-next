@@ -37,71 +37,71 @@ return [
      */
     'fonts' => [
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Deutsch.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Deutsch.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/FFF_Tusj.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/FFF_Tusj.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Kingthings_Calligraphica_2.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Kingthings_Calligraphica_2.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Kingthings_Calligraphica_Italic.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Kingthings_Calligraphica_Italic.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Kingthings_Calligraphica_Light.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Kingthings_Calligraphica_Light.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Komika_Hand_Bold_Italic.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Komika_Hand_Bold_Italic.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Komika_Hand_Bold.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Komika_Hand_Bold.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Komika_Hand_Italic.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Komika_Hand_Italic.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Komika_Hand.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Komika_Hand.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Komika_Parch.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Komika_Parch.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/Lilly__.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/Lilly__.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand_Bold_Italic.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand_Bold_Italic.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand_Bold.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand_Bold.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand_Italic.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand_Italic.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/cfonts/SF_Cartoonist_Hand.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/Gochi_Hand/GochiHand-Regular.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/Gochi_Hand/GochiHand-Regular.ttf',
             'stroke' => 3,
         ],
         [
-            'file' => 'vendor/infinity-next/laravel-captcha/fonts/Patrick_Hand/PatrickHand-Regular.ttf',
+            'file' => 'vendor/nextchan/laravel-captcha/fonts/Patrick_Hand/PatrickHand-Regular.ttf',
             'stroke' => 3,
         ],
     ],
@@ -257,7 +257,7 @@ return [
         'japanese' => [
             'fonts' => [
                 [
-                    'file' => 'vendor/infinity-next/laravel-captcha/fonts/ipaexm/ipaexm.ttf',
+                    'file' => 'vendor/nextchan/laravel-captcha/fonts/ipaexm/ipaexm.ttf',
                     'stroke' => 3,
                 ],
             ],
@@ -297,7 +297,7 @@ return [
         'chinese' => [
             'fonts' => [
                 [
-                    'file' => 'vendor/infinity-next/laravel-captcha/fonts/ipaexm/ipaexm.ttf',
+                    'file' => 'vendor/nextchan/laravel-captcha/fonts/ipaexm/ipaexm.ttf',
                     'stroke' => 3,
                 ],
             ],
@@ -336,7 +336,7 @@ return [
         'arab' => [
             'fonts' => [
                 [
-                    'file' => 'vendor/infinity-next/laravel-captcha/fonts/SIL/Lateef/LateefRegOT.ttf',
+                    'file' => 'vendor/nextchan/laravel-captcha/fonts/SIL/Lateef/LateefRegOT.ttf',
                     'stroke' => 3,
                 ],
             ],
