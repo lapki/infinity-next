@@ -1,5 +1,5 @@
 {
-    "name": "nextchan/infinity-next",
+    "name": "infinity-next/infinity-next",
     "description": "Infinity Next is an imageboard suite utilizing the Laravel framework.",
     "keywords": ["laravel", "imageboard", "4chan", "16chan", "infinity"],
     "license": "AGPL 3.0",
@@ -35,10 +35,10 @@
 
         "geoip2/geoip2" : "~2.0",
 
-        "nextchan/braintree":       "*@dev",
-        "nextchan/laravel-captcha": "*@dev",
-        "nextchan/eightdown":       "*@dev",
-        "nextchan/sleuth":          "*@dev"
+        "infinity-next/braintree":       "*@dev",
+        "infinity-next/laravel-captcha": "*@dev",
+        "infinity-next/eightdown":       "*@dev",
+        "infinity-next/sleuth":          "*@dev"
     },
 
     "require-dev": {
