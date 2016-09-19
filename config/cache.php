@@ -30,13 +30,19 @@ return [
             'driver' => 'apc',
         ],
 
+        'array' => [
+            'driver' => 'array',
+        ],
+
+        'database' => [
+            'driver' => 'database',
+            'table' => 'cache',
+            'connection' => null,
+        ],
+
         'file' => [
             'driver' => 'file',
             'path' => storage_path().'/framework/cache',
-        ],
-
-        'array' => [
-            'driver' => 'array',
         ],
 
         'memcached' => [
