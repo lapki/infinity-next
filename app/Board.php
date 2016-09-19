@@ -1048,6 +1048,8 @@ class Board extends Model
     public function hasBannedUri()
     {
         $bannedUris = (string) Settings::get('boardUriBanned');
+        if (str_replace(PHP_EOL, "", $bannedUris) == "")
+            return false;
         $bannedUris = explode(PHP_EOL, $bannedUris);
 
         foreach ($bannedUris as $bannedUri) {
