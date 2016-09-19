@@ -239,6 +239,7 @@ class BoardsController extends PanelController
 
         $failed = $validator->fails();
 
+        // If the board has a banned uri, error out.
         if (!$this->user->canCreateBoardWithBannedUri() && $board->hasBannedUri()) {
             $validator->errors()->add(
                 'board_uri',

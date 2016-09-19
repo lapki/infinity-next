@@ -1047,15 +1047,19 @@ class Board extends Model
 
     public function hasBannedUri()
     {
-        $bannedUris = (string) Settings::get('boardUriBanned');
-        if (str_replace(PHP_EOL, "", $bannedUris) == "")
+        $bannedUris = trim((string) Settings::get('boardUriBanned'));
+        $bannedUris = str_replace(["\r\n", "\n", "\r"], "\n", $bannedUris);
+        $bannedUris = explode("\n", $bannedUris);
+
+        if (!$bannedUris)
+        {
             return false;
-        $bannedUris = explode(PHP_EOL, $bannedUris);
+        }
 
         foreach ($bannedUris as $bannedUri) {
-            $bannedUri = trim(str_replace(["\r\n", "\n", "\r"], ' ', $bannedUri));
+            $bannedUri = trim($bannedUri);
 
-            if (preg_match("/{$bannedUri}/im", $this->board_uri)) {
+            if (preg_match("/{$bannedUri}/i", $this->board_uri)) {
                 return true;
             }
         }
