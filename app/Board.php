@@ -1059,6 +1059,10 @@ class Board extends Model
         foreach ($bannedUris as $bannedUri) {
             $bannedUri = trim($bannedUri);
 
+            if ($bannedUri == "") {
+                continue;
+            }
+
             if (preg_match("/{$bannedUri}/i", $this->board_uri)) {
                 return true;
             }
