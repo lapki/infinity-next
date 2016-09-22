@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Settings;
-use Captcha;
+use InfinityNext\LaravelCaptcha\Captcha;
 
 class Captchaprune extends Command
 {
