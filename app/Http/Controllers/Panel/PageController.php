@@ -51,12 +51,6 @@ class PageController extends PanelController
         if (!$this->board) {
             $this::$navSecondary = 'nav.panel.site';
             $this::$navTertiary = null;
-
-            if (!$this->user->canAdminConfig()) {
-                abort(403);
-            }
-        } elseif (!$this->user->canEditConfig($this->board)) {
-            return abort(403);
         }
 
         view()->share([
@@ -71,6 +65,12 @@ class PageController extends PanelController
      */
     public function index()
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         $pages = Page::where([
             'board_uri' => $this->board ? $this->board->board_uri : null,
         ])->get();
@@ -87,6 +87,12 @@ class PageController extends PanelController
      */
     public function create()
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         return $this->view(static::VIEW_CREATE, [
             'page' => false,
         ]);
@@ -101,6 +107,12 @@ class PageController extends PanelController
      */
     public function store(Request $request)
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         $board = $this->board;
         $request->replace([
             'name' => $request->get('name'),
@@ -146,6 +158,12 @@ class PageController extends PanelController
      */
     public function show(Page $page)
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         return $this->view(static::VIEW_SHOW, [
             'page' => $page,
         ]);
@@ -160,6 +178,12 @@ class PageController extends PanelController
      */
     public function edit(Page $page)
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         return $this->view(static::VIEW_EDIT, [
             'page' => $page,
         ]);
@@ -175,6 +199,12 @@ class PageController extends PanelController
      */
     public function update(Request $request, Page $page)
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         $board = $page->board ?: null;
         $request->replace([
             'name' => $request->get('name'),
@@ -218,6 +248,12 @@ class PageController extends PanelController
      */
     public function delete(Page $page)
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         return $this->view(static::VIEW_DELETE, [
             'page' => $page,
         ]);
@@ -232,6 +268,12 @@ class PageController extends PanelController
      */
     public function destroy($page)
     {
+        if (!$this->board && !$this->user->canAdminConfig()) {
+            abort(403);
+        } elseif (!$this->user->canEditConfig($this->board)) {
+            return abort(403);
+        }
+
         $page->delete();
 
         return redirect()->route(

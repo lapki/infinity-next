@@ -21,7 +21,7 @@ class HistoryController extends Controller
 {
     const VIEW_HISTORY = 'history';
 
-    public function list(Board $board, Post $post)
+    public function list_history(Board $board, Post $post)
     {
         if (!$this->user->canViewHistory($post)) {
             return abort(403);
