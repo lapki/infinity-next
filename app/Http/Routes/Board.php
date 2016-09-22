@@ -73,13 +73,13 @@ Route::group(['as' => 'post.', 'prefix' => 'post/{post_id}',], function () {
 /**
  * Attachment Moderation
  */
-Route::group(['as' => 'file.', 'prefix' => 'file/{attachment}',], function () {
-     Route::get('remove', ['as' => 'delete', 'uses' => 'AttachmentController@getDeleteAttachment']);
-     Route::post('remove', ['as' => 'destroy', 'uses' => 'AttachmentController@postDeleteAttachment']);
-     Route::get('spoiler', ['as' => 'spoiler', 'uses' => 'AttachmentController@getSpoilerAttachment']);
-     Route::post('spoiler', ['as' => 'spoiler.patch', 'uses' => 'AttachmentController@postSpoilerAttachment']);
-     Route::get('unspoiler', ['as' => 'unspoiler', 'uses' => 'AttachmentController@getSpoilerAttachment']);
-     Route::post('unspoiler', ['as' => 'unspoiler.patch', 'uses' => 'AttachmentController@postSpoilerAttachment']);
+Route::group(['as' => 'file.', 'prefix' => 'file',], function () {
+     Route::get('remove/{attachment}', ['as' => 'delete', 'uses' => 'AttachmentController@getDeleteAttachment']);
+     Route::post('remove/{attachment}', ['as' => 'destroy', 'uses' => 'AttachmentController@postDeleteAttachment']);
+     Route::get('spoiler/{attachment}', ['as' => 'spoiler', 'uses' => 'AttachmentController@getSpoilerAttachment']);
+     Route::post('spoiler/{attachment}', ['as' => 'spoiler.patch', 'uses' => 'AttachmentController@postSpoilerAttachment']);
+     Route::get('unspoiler/{attachment}', ['as' => 'unspoiler', 'uses' => 'AttachmentController@getSpoilerAttachment']);
+     Route::post('unspoiler/{attachment}', ['as' => 'unspoiler.patch', 'uses' => 'AttachmentController@postSpoilerAttachment']);
 });
 
 /**

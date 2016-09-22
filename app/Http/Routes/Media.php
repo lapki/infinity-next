@@ -59,6 +59,6 @@ if (false && !is_hidden_service() && config('app.url_media', false))
         Route::get('thumb/{attachment}/{filename}', [
             'as'   => 'thumb.attachment',
             'uses' => 'FileController@getThumbnailFromAttachment',
-        ]);
+        ])->where(['attachment' => '[0-9]+',]);
     });
 }
