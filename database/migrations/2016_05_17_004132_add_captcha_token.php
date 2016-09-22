@@ -41,7 +41,7 @@ class AddCaptchaToken extends Migration
 		{
 			$table->dropColumn('client_ip');
 			$table->dropColumn('client_session_id');
-			$table->inet('client_ip')->after('hash')->nullable();
+			$table->ipAddress('client_ip')->after('hash')->nullable();
 		});
 	}
 }
