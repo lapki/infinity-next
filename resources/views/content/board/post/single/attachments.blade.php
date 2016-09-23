@@ -14,12 +14,11 @@
                 target="_blank"
                 href="{!! $attachment->getDownloadURL($board) !!}"
                 data-download-url="{!! $attachment->getDownloadURL($board) !!}"
-                data-thumb-url="{!! $attachment->getThumbnailURL($board) !!}"
-            >
+                data-thumb-url="{!! $attachment->getThumbnailURL($board) !!}">
                 <figure class="attachment attachment-type-{{ $attachment->guessExtension() }} {{ $attachment->getThumbnailClasses() }}" data-widget="lazyimg">
                     <figcaption class="attachment-details">
                         <p class="attachment-detail">
-                            @if ($attachment->pivot->is_spoiler)
+                            @if ($attachment->isSpoiler())
                             <span class="detail-item detail-filename filename-spoilers">@lang('board.field.spoilers')</span>
                             @else
                             <span class="detail-item detail-filename filename-cleartext" title="{{ $attachment->pivot->filename }}">{{ $attachment->getShortFilename() }}</span>
