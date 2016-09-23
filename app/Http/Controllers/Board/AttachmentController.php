@@ -30,8 +30,6 @@ use App\Events\AttachmentWasModified;
 class AttachmentController extends Controller
 {
     const VIEW_VERIFY = 'board.verify';
-    const VIEW_VERIFY_PASS = 'board.verify.password';
-    const VIEW_VERIFY_MOD = 'board.verify.mod';
 
     /**
      * Delete a post's attachment.
@@ -87,12 +85,6 @@ class AttachmentController extends Controller
         ];
 
         return $this->view(static::VIEW_VERIFY, $scope);
-        $attachment->is_spoiler = !$attachment->is_spoiler;
-        $attachment->save();
-
-        Event::fire(new AttachmentWasModified($attachment));
-
-        return redirect()->back();
     }
 
     /**
