@@ -12,9 +12,9 @@
             @else
             <a class="attachment-link"
                 target="_blank"
-                href="{!! $attachment->getDownloadURL($board) !!}"
-                data-download-url="{!! $attachment->getDownloadURL($board) !!}"
-                data-thumb-url="{!! $attachment->getThumbnailURL($board) !!}">
+                href="{!! $attachment->getDownloadUrl($board) !!}"
+                data-download-url="{!! $attachment->getDownloadUrl($board) !!}"
+                data-thumb-url="{!! $attachment->getThumbnailUrl($board) !!}">
                 <figure class="attachment attachment-type-{{ $attachment->guessExtension() }} {{ $attachment->getThumbnailClasses() }}" data-widget="lazyimg">
                     <figcaption class="attachment-details">
                         <p class="attachment-detail">
@@ -70,7 +70,7 @@
 
             {{-- Note: Strict LTR direct here because this is technical info. --}}
             <a class="attachment-action attachment-download" dir="ltr" target="_blank"
-                href="{!! $attachment->getDownloadUrl($board) . "?disposition=attachment" !!}"
+                href="{!! $attachment->getDownloadUrl($board, true) !!}"
                 download="{!! $attachment->getDownloadName() !!}"
             >
                 <span class="detail-item detail-download">@lang('board.field.download')</span>

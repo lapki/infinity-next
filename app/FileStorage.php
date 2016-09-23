@@ -285,14 +285,20 @@ class FileStorage extends Model
      *
      * @return string
      */
-    public function getDownloadUrl(Board $board)
+    public function getDownloadUrl(Board $board, $attachment = false)
     {
         $params = [
             'attachment' => $this->pivot->attachment_id,
             'filename' => $this->getDownloadName(),
         ];
 
-        if (!config('app.url_media', false)) {
+        if ($attachment)
+        {
+            $params['disposition'] = 'attachment';
+        }
+
+        if (!config('app.url_media', false))
+        {
             $params['board'] = $board;
         }
 
@@ -612,13 +618,13 @@ class FileStorage extends Model
         }
         else if ($this->isImageVector())
         {
-            $url = $this->getDownloadURL($board);
+            $url = $this->getDownloadUrl($board);
         }
         else if ($this->isAudio() || $this->isImage() || $this->isVideo() || $this->isDocument())
         {
             if ($this->hasThumb())
             {
-                $url = $this->getThumbnailURL($board);
+                $url = $this->getThumbnailUrl($board);
             }
             else if ($this->isAudio())
             {

@@ -85,7 +85,6 @@ class FileController extends Controller
                     'Expires' => gmdate(DATE_RFC1123, time() + $cacheTime),
                     'Last-Modified' => gmdate(DATE_RFC1123, File::lastModified($storagePathFull)),
                     'Content-Disposition' => Request::get('disposition', 'inline'),
-                    //'Content-Disposition'  => "attachment; filename={$filename}",
                     'Content-Length' => $responseSize,
                     'Content-Type' => $FileStorage->mime,
                     'Filename' => urldecode($filename),
