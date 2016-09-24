@@ -36,7 +36,6 @@
         @if (!$attachment->isDeleted())
         <div class="attachment-action-group">
             <div class="post-action-bar action-bar-attachments">
-                @section('attachment-actions')
                 @set('attachmentActions', false)
                 <div class="post-action-tab action-tab-actions" data-no-instant>
                     <span class="post-action-label post-action-open"><span class="post-action-text">@lang('board.action.open')</span></span>
@@ -67,7 +66,6 @@
                         </li>
                     </ul>
                 </div>
-                @show
             </div>
 
             {{-- Note: Strict LTR direct here because this is technical info. --}}
