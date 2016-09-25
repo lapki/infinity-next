@@ -16,19 +16,19 @@
 
     "repositories": [
         {
-            "type": "vcs",
+            "type": "git",
             "url": "https://github.com/nextchan/braintree"
         },
         {
-            "type": "vcs",
+            "type": "git",
             "url": "https://github.com/nextchan/laravel-captcha"
         },
         {
-            "type": "vcs",
+            "type": "git",
             "url": "https://github.com/nextchan/eightdown"
         },
         {
-            "type": "vcs",
+            "type": "git",
             "url": "https://github.com/nextchan/sleuth"
         }
     ],
