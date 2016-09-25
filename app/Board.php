@@ -319,7 +319,7 @@ class Board extends Model
         $lastCaptcha = Captcha::select('created_at', 'cracked_at')
             ->where(function ($query) use ($ip, $session_id) {
                 // Find captchas answered by this user.
-                $query->where('client_session_id', pg_escape_bytea(hex2bin($session_id)));
+                $query->where('client_session_id', binary_sql(hex2bin($session_id)));
 
                 // Pull the lifespan of a captcha.
                 // This is the number of minutes between successful entries.
