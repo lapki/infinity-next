@@ -41,7 +41,13 @@ class TorPull extends Command
      * @var string
      */
     const LOOKUP_URL = "https://check.torproject.org/cgi-bin/TorBulkExitList.py";
-    const LOOKUP_PORTS = array(80, 443, 8080, 8443);
+
+    /**
+     * The ports we use for looksups.
+     *
+     * @var array
+     */
+    private $ports = ['80', '443', '8080', '8443'];
 
     /**
      * Execute the console command.
@@ -56,7 +62,7 @@ class TorPull extends Command
         ];
 
         $ips = collect();
-        foreach (static::LOOKUP_PORTS as $port)
+        foreach ($this->ports as $port)
         {
             $portIps = $this->getPortIps($query, $port);
             if (empty($portIps))
