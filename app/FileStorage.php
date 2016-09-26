@@ -1007,7 +1007,7 @@ class FileStorage extends Model
 
                             return true;
                         } catch (\Exception $error) {
-                            // Nothing.
+                            app('log')->error("intervention/image encountered an error trying to generate a thumbnail for the audio file {$this->hash}.");
                         }
 
                         break;
@@ -1078,28 +1078,32 @@ class FileStorage extends Model
                         return true;
                     }
                 } catch (\Exception $e) {
-                    app('log')->error("ffmpeg encountered an error trying to generate a thumbnail for file {$this->hash}.");
+                    app('log')->error("ffmpeg encountered an error trying to generate a thumbnail for the video file {$this->hash}.");
                 }
             } elseif ($this->isImage()) {
-                Storage::makeDirectory($this->getDirectoryThumb());
+                try {
+                    Storage::makeDirectory($this->getDirectoryThumb());
 
-                $image = (new ImageManager())->make($this->getFullPath());
+                    $image = (new ImageManager())->make($this->getFullPath());
 
-                $this->file_height = $image->height();
-                $this->file_width = $image->width();
+                    $this->file_height = $image->height();
+                    $this->file_width = $image->width();
 
-                $image->resize(Settings::get('attachmentThumbnailSize'), Settings::get('attachmentThumbnailSize'), function ($constraint) {
-                    $constraint->aspectRatio();
-                    $constraint->upsize();
-                })
-                    ->encode(Settings::get('attachmentThumbnailJpeg') ? 'jpg' : 'png', Settings::get('attachmentThumbnailQuality'))
-                    ->save($this->getFullPathThumb());
+                    $image->resize(Settings::get('attachmentThumbnailSize'), Settings::get('attachmentThumbnailSize'), function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })
+                        ->encode(Settings::get('attachmentThumbnailJpeg') ? 'jpg' : 'png', Settings::get('attachmentThumbnailQuality'))
+                        ->save($this->getFullPathThumb());
 
-                $this->has_thumbnail = true;
-                $this->thumbnail_height = $image->height();
-                $this->thumbnail_width = $image->width();
+                    $this->has_thumbnail = true;
+                    $this->thumbnail_height = $image->height();
+                    $this->thumbnail_width = $image->width();
 
-                return true;
+                    return true;
+                } catch (\Exception $e) {
+                    app('log')->error("intervention/image encountered an error trying to generate a thumbnail for the image file {$this->hash}.");
+                }
             }
             else if ($this->mime === "application/epub+zip")
             {
@@ -1168,7 +1172,7 @@ class FileStorage extends Model
                     }
                     catch (\Exception $e)
                     {
-                        app('log')->error("Encountered an error trying to generate a thumbnail for file {$this->hash}.");
+                        app('log')->error("intervention/image encountered an error trying to generate a thumbnail for the epub file {$this->hash}.");
                     }
                 }
             }
