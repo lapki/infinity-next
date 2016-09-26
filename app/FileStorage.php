@@ -910,8 +910,6 @@ class FileStorage extends Model
             case 'image/jpg':
             case 'image/gif':
             case 'image/png':
-            case 'image/x-icon';
-            case 'application/psd';
                 return true;
         }
 
