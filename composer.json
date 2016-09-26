@@ -2,7 +2,7 @@
     "name": "infinity-next/infinity-next",
     "description": "Infinity Next is an imageboard suite utilizing the Laravel framework.",
     "keywords": ["laravel", "imageboard", "4chan", "16chan", "infinity"],
-    "license": "AGPL 3.0",
+    "license": "AGPL-3.0+",
     "type": "project",
 
     "authors": [
