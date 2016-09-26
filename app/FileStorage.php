@@ -770,6 +770,8 @@ class FileStorage extends Model
                 return 'png';
             case 'image/x-icon';
                 return 'ico';
+            case 'application/psd';
+                return 'psd';
             //#
             // DOCUMENTS
             //#
@@ -890,7 +892,6 @@ class FileStorage extends Model
         {
             case 'application/epub+zip' :
             case 'application/pdf' :
-            case 'application/psd';
                 return true;
         }
 
@@ -910,6 +911,7 @@ class FileStorage extends Model
             case 'image/gif':
             case 'image/png':
             case 'image/x-icon';
+            case 'application/psd';
                 return true;
         }
 
