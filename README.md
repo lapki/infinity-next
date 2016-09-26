@@ -70,20 +70,4 @@ Everyone is welcome to contribute, but please follow repository etiquette.
 It would benefit you to make sure your solution has the OK before writing any code.
 
 ## Coding Standards
-In the name of preventing conflict and keeping the codebase clean, I am implementing the **[exact same standards of Laravel contributors](http://laravel.com/docs/4.2/contributions#coding-style)**.
-
-> Laravel follows the [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) and [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) coding standards. In addition to these standards, the following coding standards should be followed:
->
-> * The class namespace declaration must be on the same line as `<?php`.
-> * A class's opening `{` must be on the same line as the class name.
-> * Functions and control structures must use Allman style braces.
-> Indent with tabs, align with spaces.
-
-"Allman style braces" refer to having a curly-brace on a new line at the same level of indentation as the conditional itself.
-
-```
-if (condition)
-{
-	// Code here.
-}
-```
+In the name of preventing conflict and keeping the codebase clean, we use the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) coding standards.
