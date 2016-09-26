@@ -888,8 +888,9 @@ class FileStorage extends Model
     {
         switch ($this->mime)
         {
-            case "application/epub+zip" :
-            case "application/pdf" :
+            case 'application/epub+zip' :
+            case 'application/pdf' :
+            case 'application/psd';
                 return true;
         }
 

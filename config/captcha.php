@@ -22,6 +22,14 @@ return [
     'route' => config('app.panel_url', '/cp') . '/captcha',
 
     /*
+     * Passed directly into the 'group' parameter of the routing group used for
+     * all API points.
+     *
+     * @var string|array  Middleware group name or array of middleware classes.
+     */
+    'middleware' => "api",
+
+    /*
      * Expiry time (in minutes) for a captcha.
      * It's imporatnt to have a short expiry time for your images.
      * If it's very long, it makes it easier for human captcha crackers to store answers.
