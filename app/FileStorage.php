@@ -768,10 +768,10 @@ class FileStorage extends Model
                 return 'gif';
             case 'image/png':
                 return 'png';
+            case 'image/vnd.adobe.photoshop';
+                return 'psd';
             case 'image/x-icon';
                 return 'ico';
-            case 'application/psd';
-                return 'psd';
             //#
             // DOCUMENTS
             //#
@@ -910,6 +910,9 @@ class FileStorage extends Model
             case 'image/jpg':
             case 'image/gif':
             case 'image/png':
+            // These are only thumbnailable with the Imagick backend.
+            case 'image/vnd.adobe.photoshop':
+            case 'image/x-icon':
                 return true;
         }
 
