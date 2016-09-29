@@ -19,7 +19,7 @@
     var options = {
         sfw : {
             type : "bool",
-            initial : false,
+            initial : true,
             onChange : events.doContentUpdate,
             onUpdate : events.doContentUpdate
         }
@@ -32,14 +32,12 @@
 
     // Event bindings
     blueprint.prototype.bind = function() {
-        var widget  = this;
-        var $widget = this.$widget;
         var data    = {
-            widget  : widget,
-            $widget : $widget
+            widget  : this,
+            $widget : this.$widget
         };
 
-        widget.adjustDisplay(widget.is('sfw'));
+        this.adjustDisplay(this.is('sfw'));
     };
 
     blueprint.prototype.defaults = {
