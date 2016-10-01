@@ -20,6 +20,7 @@ return [
 		'admin'         => "Administrator",
 		'global_mod'    => "Global Volunteer",
 		'unaccountable' => "Proxy User",
+		'developer'    => "Developer",
 		'registered'    => "Registered User",
 		'absolute'      => "Global Absolute",
 		
