@@ -1,5 +1,12 @@
 body.nsfw-filtered {
-    .nsfw {
-        display: none !important;
+    .multiboard-index {
+        .nsfw {
+            display: none !important;
+        }
+    }
+    .recent-images {
+        .nsfw {
+            display: none !important;
+        }
     }
 }
