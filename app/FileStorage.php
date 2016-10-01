@@ -718,7 +718,6 @@ class FileStorage extends Model
         }
 
         $params = [
-            'board' => $board,
             'attachment' => $this->getIdentifier(),
             'filename' => "thumb_".$this->getDownloadName().".{$ext}",
         ];
