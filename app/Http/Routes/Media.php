@@ -16,7 +16,7 @@
  * Media queries for actual content.
  * Can be routed through a CDN (sub)domain.
  */
-if (!is_hidden_service() && !config('app.url_media', false))
+if (!is_hidden_service() && config('app.url_media', false))
 {
     Route::group(['domain' => config('app.url_media')], function() {
         Route::get('{hash}/{filename}', [
