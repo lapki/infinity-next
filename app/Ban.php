@@ -239,30 +239,21 @@ class Ban extends Model
     /**
      * Returns a fully qualified URL for a route on this ban.
      *
-     * @param  string  $route  Optional route addendum.
-     * @param  array  $params  Optional array of parameters to be added.
-     * @param  bool  $abs  Options indicator if the URL is to be absolute.
+     * @param  bool  $absolute  Options indicator if the URL is to be absolute.
      *
      * @return string
      */
-    public function getUrl($route = "", array $params = [], $abs = true)
+    public function getUrl($absolute = false)
     {
-        $defParams = ['ban' => $this->ban_id];
-
-        if (!$this->isGlobal()) {
-            $defParams += ['board' => $this->board_uri];
+        if ($this->isGlobal()) {
+            $route = 'panel.global.ban';
+            $parameters = ['ban' => $this->ban_id];
+        } else {
+            $route = 'panel.board.ban';
+            $parameters = ['board' => $this->board_uri, 'ban' => $this->ban_id];
         }
 
-        return route(
-            implode(array_filter([
-                "panel",
-                $this->isGlobal() ? "site" : "board",
-                "ban",
-                $route,
-            ]), '.'),
-            $defParams + $params,
-            true
-        );
+        return route($route, $parameters, $absolute);
     }
 
     /**

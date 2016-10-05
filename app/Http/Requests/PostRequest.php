@@ -169,7 +169,7 @@ class PostRequest extends Request implements ApiContract
     public function forbiddenResponse()
     {
         if ($this->ban) {
-            $url = route('panel.banned');
+            $url = $this->ban->getUrl();
 
             if ($this->ajax() || $this->wantsJson()) {
                 return $this->apiResponse(['redirect' => $url]);
