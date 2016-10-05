@@ -702,10 +702,14 @@
                         var json = response;
                     }
 
-                    if (typeof json.redirect !== "undefined")
+                    if (typeof json.redirect !== "undefined" && typeof json.post !== "undefined")
                     {
                         console.log("Post submitted. Redirecting.");
                         window.ib.storeYouPost(json.post.board_uri, json.post.board_id);
+                        window.location = json.redirect;
+                    }
+                    else if (typeof json.redirect !== "undefined")
+                    {
                         window.location = json.redirect;
                     }
                     else if (typeof json.errors !== "undefined")
