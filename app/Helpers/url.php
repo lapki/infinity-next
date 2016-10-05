@@ -69,7 +69,7 @@ if (!function_exists('media_url')) {
             }
 
             if ($media) {
-                return $scheme.$media.$url;
+                return $scheme.'://'.$media.$url;
             }
 
             return asset($path);
