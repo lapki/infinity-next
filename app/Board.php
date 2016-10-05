@@ -739,9 +739,9 @@ class Board extends Model
 
         if (!$icon) {
             if ($this->is_worksafe) {
-                return asset('/static/img/assets/Favicon_Burichan.ico');
+                return media_url('/static/img/assets/Favicon_Burichan.ico');
             } else {
-                return asset('/static/img/assets/Favicon_Yotsuba.ico');
+                return media_url('/static/img/assets/Favicon_Yotsuba.ico');
             }
         }
 
