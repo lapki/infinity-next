@@ -439,17 +439,18 @@ class PostRequest extends Request implements ApiContract
                                 ->first();
             $post_body = $this->only('body');
 
-            $last_post_body = trim(preg_replace('/[^[:print:]]/', '', $last_post->body));
-            $post_body = trim(preg_replace('/[^[:print:]]/', '', $post_body["body"]));
+            if ($last_post) {
+                $last_post_body = trim(preg_replace('/[^[:print:]]/', '', $last_post->body));
+                $post_body = trim(preg_replace('/[^[:print:]]/', '', $post_body["body"]));
+                if ($post_body != "" &&
+                   ($last_post_body === $post_body)) {
+                    // Last post in thread same as this one.
+                    $messages->add('flood', trans('validation.custom.same_as_last_post'));
 
-            if ($last_post->exists && $post_body != "" &&
-               ($last_post_body === $post_body)) {
-                // Last post in thread same as this one.
-                $messages->add('flood', trans('validation.custom.same_as_last_post'));
+                    $this->failedValidation($validator);
 
-                $this->failedValidation($validator);
-
-                return;
+                    return;
+                }
             }
 
         } else {
