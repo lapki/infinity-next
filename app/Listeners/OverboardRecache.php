@@ -15,7 +15,7 @@ class OverboardRecache extends Listener
      */
     public function handle($event)
     {
-        switch (env('CACHE_DRIVER')) {
+        switch (config('cache.default')) {
             case 'file':
                 for ($i = 1; $i <= 1; ++$i) {
                     Cache::forget("site.overboard.page.{$i}");

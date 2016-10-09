@@ -30,5 +30,6 @@ class BoardRecachePages extends Listener
         if (isset($board)) {
             $board->clearCachedPages();
         }
+
     }
 }
