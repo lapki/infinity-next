@@ -25,7 +25,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+    \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+    \App\Http\Middleware\CheckForNotModified::class,
+    \Fideloper\Proxy\TrustProxies::class,
+    \App\Http\Middleware\CheckIfSessionRequired::class,
     ];
 
     /**
