@@ -12,10 +12,11 @@
  * @since      0.6.0
  */
 Route::group([
-    'namespace' => 'Internal',
     'prefix' => '.internal',
+    'middleware' => 'web',
 ], function () {
     Route::get('site/global-nav', 'SiteController@getGlobalNavigation');
     Route::get('site/recent-images', 'SiteController@getRecentImages');
     Route::get('site/recent-posts', 'SiteController@getRecentPosts');
+    Route::get('site/post-form', 'SiteController@getPostForm');
 });

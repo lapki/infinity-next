@@ -59,7 +59,7 @@
         @section('header')
         <header class="board-header header-height-1">
             @section('nav-header')
-                @if (env('APP_ESI', false))
+                @if (config('cache.esi', false))
                     <esi:include src="{{ esi_url('.internal/site/global-nav') }}" />
                 @else
                     @include('nav.gnav')

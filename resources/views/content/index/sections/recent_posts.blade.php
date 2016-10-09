@@ -1,4 +1,4 @@
-<section id="site-recent-posts" class="grid-50 tablet-grid-50 mobile-grid-50 {{ $rtl ? 'pull-50' : ''}}">
+<section id="site-recent-posts" class="grid-50 tablet-grid-50 mobile-grid-50 {{ (isset($rtl) && $rtl) ? 'pull-50' : ''}}">
     <div class="smooth-box">
         <h2 class="index-title">@lang('index.title.recent_posts')</h2>
         <div class="grid-container">

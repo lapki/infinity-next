@@ -2,6 +2,18 @@
 
 @section('content')
 <main class="board-index index-catalog">
+
+    <section class="index-form">
+        @if (config('cache.esi', false))
+            <esi:include src="/.internal/site/post-form?board_uri={{ $board->board_uri }}&reply_to={{ $reply_to ? $reply_to->post_id : 0 }}">
+        @else
+            @include('content.board.post.form', [
+                'board'   => $board,
+                'actions' => [ $reply_to ? "reply" : "thread" ],
+            ])
+        @endif
+    </section>
+
     @include('nav.board.pages', [
         'showCatalog' => false,
         'showIndex'   => true,
@@ -27,10 +39,14 @@
     </section>
 
     <section class="index-form">
-        @include('content.board.post.form', [
-            'board'   => $board,
-            'actions' => [ $reply_to ? "reply" : "thread" ],
-        ])
+        @if (config('cache.esi', false))
+            <esi:include src="/.internal/site/post-form?board_uri={{ $board->board_uri }}&reply_to={{ $reply_to ? $reply_to->post_id : 0 }}">
+        @else
+            @include('content.board.post.form', [
+                'board'   => $board,
+                'actions' => [ $reply_to ? "reply" : "thread" ],
+            ])
+        @endif
     </section>
 
     @include('content.board.sidebar')

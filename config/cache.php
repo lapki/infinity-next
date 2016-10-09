@@ -75,4 +75,6 @@ return [
 
     'prefix' => 'laravel',
 
+
+    'esi' => env('APP_ESI', false),
 ];

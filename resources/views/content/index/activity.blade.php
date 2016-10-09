@@ -5,9 +5,9 @@
 
     @include('content.index.sections.featured_post')
 
-    @if (env('APP_ESI', false))
-        <esi:include src="{{ esi_url('.internal/site/recent-images') }}" />
-        <esi:include src="{{ esi_url('.internal/site/recent-posts') }}" />
+    @if (config('cache.esi', false))
+        <esi:include src="/.internal/site/recent-images{{ $nsfw ? '?nsfw' : ''}}" />
+        <esi:include src="/.internal/site/recent-posts" />
     @else
         @include('content.index.sections.recent_images')
         @include('content.index.sections.recent_posts')

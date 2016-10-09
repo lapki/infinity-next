@@ -66,7 +66,10 @@ class RouteServiceProvider extends ServiceProvider
             'namespace'  => 'App\Http\Controllers\API',
         ],
 
-        'esi'     => 'ESI',
+        'esi' => [
+            'as'         => 'esi.',
+            'namespace'  => 'App\Http\Controllers\ESI',
+        ],
     ];
 
     /**
@@ -184,6 +187,13 @@ class RouteServiceProvider extends ServiceProvider
          */
         $router->group($this->routeGroup['media'], function ($router) {
             require __DIR__.'/../Http/Routes/Media.php';
+        });
+
+        /**
+         * Edge-Side Includes
+         */
+        $router->group($this->routeGroup['esi'], function ($router) {
+            require __DIR__.'/../Http/Routes/ESI.php';
         });
 
         /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Internal;
+namespace App\Http\Controllers\ESI;
 
 use App\Http\Controllers\Controller;
 

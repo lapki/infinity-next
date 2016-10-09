@@ -6,10 +6,14 @@
 <main class="board-index index-threaded mode-{{ $reply_to ? "reply" : "index" }} @if (isset($page)) page-{{ $page }} @endif">
 
     <section class="index-form">
-        @include('content.board.post.form', [
-            'board'   => $board,
-            'actions' => [ $reply_to ? "reply" : "thread" ],
-        ])
+        @if (config('cache.esi', false))
+            <esi:include src="/.internal/site/post-form?board_uri={{ $board->board_uri }}&reply_to={{ $reply_to ? $reply_to->post_id : 0 }}">
+        @else
+            @include('content.board.post.form', [
+                'board'   => $board,
+                'actions' => [ $reply_to ? "reply" : "thread" ],
+            ])
+        @endif
     </section>
 
     @include('nav.board.pages', [
