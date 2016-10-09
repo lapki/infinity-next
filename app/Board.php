@@ -703,17 +703,21 @@ class Board extends Model
     /**
      * Returns the most recent featured boards.
      *
+     * @param bool $sfwOnly
+     *
      * @return array
      */
-    public static function getFeatured($count = 5)
+    public static function getFeatured($sfwOnly = true)
     {
-        return static::whereNotNull('featured_at')
-            ->with(['assets' => function ($query) {
-                $query->whereBoardIcon();
-            }])
-            ->orderBy('featured_at', 'desc')
-            ->limit(6)
-            ->get();
+        $mainQuery =  static::whereNotNull('featured_at');
+        if ($sfwOnly)
+            $mainQuery = $mainQuery->where('is_worksafe', '=', true);
+        return $mainQuery->with(['assets' => function ($query) {
+                            $query->whereBoardIcon();
+                        }])
+                        ->orderBy('featured_at', 'desc')
+                        ->limit(6)
+                        ->get();
     }
 
     /**

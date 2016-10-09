@@ -88,17 +88,20 @@ class FileAttachment extends Model
      *
      * @return Collection of static
      */
-    public static function getRecentImages($number = 16)
+    public static function getRecentImages($number = 16, $sfwOnly = true)
     {
-        $key = "index.recent_images.{$number}";
-
-        return Cache::remember($key, 1, function () use ($number) {
             $sfw = static::getRecentImagesByWorksafe($number, true);
-            $nsfw = static::getRecentImagesByWorksafe($number, false);
-            $images = $sfw->merge($nsfw)->sortByDesc('attachment_id');
+            $merged = null;
+
+            if ($sfwOnly) {
+                $merged = $sfw;
+            } else {
+                $nsfw = static::getRecentImagesByWorksafe($number, false);
+                $merged = $sfw->merge($nsfw);
+            }
+            $images = $merged->sortByDesc('attachment_id');
 
             return $images;
-        });
     }
 
     protected static function getRecentImagesByWorksafe($number = 16, $sfw = false)

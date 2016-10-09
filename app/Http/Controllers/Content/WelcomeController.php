@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Board\BoardStats;
 use App\Post;
 use Illuminate\Support\Facades\View;
+use Illuminate\Http\Request;
 
 /**
  * Index page.
@@ -33,20 +34,25 @@ class WelcomeController extends Controller
     /**
      * Show the application welcome screen to the user.
      *
+     * @param Request $request
+     *
      * @return Response
      */
-    public function getIndex()
+    public function getIndex(Request $request)
     {
         if ($featured = Post::getPostFeatured()) {
             $featured->setRelation('replies', []);
         }
 
-        $featured_boards = Board::getFeatured(5);
+        $is_nsfw = ($request->input('nsfw', false) !== false);
+
+        $featured_boards = Board::getFeatured(!$is_nsfw);
 
         return $this->view(static::VIEW_INDEX, [
             'featured' => $featured,
             'featured_boards' => $featured_boards,
             'stats' => $this->boardStats(),
+            'nsfw' => $is_nsfw
         ]);
     }
 }
