@@ -39,7 +39,7 @@ if (!function_exists('is_hidden_service')) {
      */
     function is_hidden_service()
     {
-        return config('tor.request', false);
+        return @$_SERVER['HTTP_HOST'] && @$_SERVER['HTTP_HOST'] === env('APP_URL_HS', false);
     }
 }
 
@@ -66,6 +66,7 @@ if (!function_exists('media_url')) {
 
             if (is_hidden_service()) {
                 return $request->to($url);
+		#return "hidden_detected";
             }
 
             if ($media) {
