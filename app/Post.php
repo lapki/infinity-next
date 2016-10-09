@@ -1472,20 +1472,16 @@ class Post extends Model implements FormattableContract
             $query->where('is_indexed', true);
             $query->where('is_overboard', true);
 
-            $query->where(function ($query) use ($worksafe, $include, $exclude) {
-                $query->where(function ($query) use ($worksafe, $exclude) {
-                    if (!is_null($worksafe)) {
-                        $query->where('is_worksafe', $worksafe);
-                    }
-                    if (count($exclude)) {
-                        $query->whereNotIn('boards.board_uri', $exclude);
-                    }
-                });
+            if (!is_null($worksafe)) {
+                $query->where('is_worksafe', $worksafe);
+            }
+            if (count($exclude)) {
+                $query->whereNotIn('boards.board_uri', $exclude);
+            }
 
-                if (count($include)) {
-                    $query->orWhereIn('boards.board_uri', $include);
-                }
-            });
+            if (count($include)) {
+                $query->orWhereIn('boards.board_uri', $include);
+            }
         })->op();
 
         // Add replies if we're not in catalog.
