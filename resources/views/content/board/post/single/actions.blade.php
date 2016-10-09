@@ -36,7 +36,7 @@
                         @set('postActions', true)
                         <li class="post-action">
                             <a class="post-action-link action-link-report"
-                                href="{!! $post->getUrl('history') !!}">
+                                href="{!! $post->getModUrl('history') !!}">
                                 @lang('board.action.history', [
                                     'board_uri' => $details['board_uri'],
                                 ])
