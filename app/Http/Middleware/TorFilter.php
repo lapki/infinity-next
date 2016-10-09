@@ -39,7 +39,7 @@ class TorFilter
         } elseif ($geolocation->getCountryCode() == 'tor') {
             $accountable = false;
 
-            if (!config('app.debug', false) && env('APP_URL_HS', false)) {
+            if (!config('app.debug', false) && config('app.url_hs', false)) {
                 throw new TorClearnet;
             }
         }
