@@ -198,6 +198,11 @@ return [
          */
         //Laravel\Cashier\CashierServiceProvider::class,
         InfinityNext\Braintree\BraintreeServiceProvider::class,
+
+        /**
+         * Proxy IPs...
+         */
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
     ],
 
     /*

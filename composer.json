@@ -54,6 +54,8 @@
 
         "geoip2/geoip2" : "~2.0",
 
+        "fideloper/proxy": "^3.1",
+
         "infinity-next/braintree":       "*@dev",
         "infinity-next/laravel-captcha": "*@dev",
         "infinity-next/eightdown":       "*@dev",
